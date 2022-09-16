@@ -1,0 +1,2 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.udem.edu.co/isv/soap/gen", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package co.edu.udem.isv.soap.gen.co.edu.udem.isv.soap.gen.user;

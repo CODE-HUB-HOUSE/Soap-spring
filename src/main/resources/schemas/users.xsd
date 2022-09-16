@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.udem.edu.co/isv/soap/gen"
+           targetNamespace="http://www.udem.edu.co/isv/soap/gen" elementFormDefault="qualified">
+
+    <xs:element name="getUserRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dni" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getUserResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:userResponseDTO"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="user">
+        <xs:sequence>
+            <xs:element name="dni" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="phoneNumber" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="tag" type="tns:tag"/>
+            <xs:element name="password" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="postUser">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:user"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="tag">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ADMIN01OPC"/>
+            <xs:enumeration value="ADMIN02TES"/>
+            <xs:enumeration value="TEACH04SIS"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="userResponseDTO">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="phoneNumber" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="tag" type="tns:tag"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="userErrorResponse">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
